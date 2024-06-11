@@ -1,0 +1,42 @@
+{% extends 'layout.html' %}
+
+
+
+    {% block title %}
+    <title>SHOW</title>
+{% endblock %}
+
+
+
+{% block content %}
+    <table class="table table-dark">
+        <thead>
+            <tr>
+                <th>task_name</th>
+                <th>task_description</th>
+                <th>file</th>
+                <th>image</th>
+                <th>start_date</th>
+                <th>end_date</th>
+                <th>status_of_task</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for obj in data %}
+            <tr>
+                <td>{{ obj.task_name}}</td>
+                <td>{{ obj.task_description}}</td>
+                <td>{{ obj.file }}</td>
+                <td><img src="{{ obj.image.url }}" alt="" style="height: 100px;width: 100px;"></td>
+                <td>{{ obj.start_date}}</td>
+                <td>{{ obj.end_date}}</td>
+                <td>{{ obj.status_of_task}}</td>
+                <td>
+                    <a href="{% url 'todo_update' obj.id %}"><button>Update</button></a>
+                    <a href="{% url 'todo_delete' obj.id %}"><button>Delete</button></a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

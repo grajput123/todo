@@ -1,0 +1,16 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+    <title>Todo</title>
+{% endblock %}
+
+
+
+{% block content %}
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Add Data">
+        <input type="reset" value="Reset Data">
+    </form>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends 'layout.html' %}
+
+
+{% block title %}
+    <title>LOGIN</title>
+{% endblock %}
+
+
+
+{% block content %}
+    <form method="post">
+        {% csrf_token %}
+        <label><b>USERNAME</b></label>
+        <input type="text" id="un" name="un">
+        <br>
+        <br>
+        <label><b>PASSWORD</b></label>
+        <input type="password" id="pw" name="pw">
+        <br>
+        <br>
+        <input type="submit" value="Login_User">
+        <input type="reset" value="Reset_User">
+
+    </form>
+{% endblock %}
